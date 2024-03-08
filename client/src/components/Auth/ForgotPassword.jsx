@@ -1,82 +1,3 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-
-// const ForgotPassword = () => {
-//   const [formData, setFormData] = useState({
-//     email: '',
-//     username: '',
-//     newPassword: '',
-//   });
-
-//   const [message, setMessage] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({
-//       ...formData,
-//       [name]: value,
-//     });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-
-//     try {
-//       const response = await fetch('http://localhost:4000/forgot-password', {
-//         method: 'PATCH',
-//         headers: {
-//           'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(formData),
-//       });
-
-//       if (response.ok) {
-//         const data = await response.json();
-//         setMessage(data.message);
-
-//         // Delay the navigation to the login page after 3 seconds
-//         setTimeout(() => {
-//           navigate('/login');
-//         }, 2000);
-//       } else {
-//         const errorData = await response.json();
-//         setMessage(errorData.message);
-//       }
-//     } catch (error) {
-//       console.error('Error during password reset:', error);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h2>Forgot Password</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Email:
-//           <input type="text" name="email" value={formData.email} onChange={handleChange} />
-//         </label>
-//         <br />
-//         <label>
-//           Username:
-//           <input type="text" name="username" value={formData.username} onChange={handleChange} />
-//         </label>
-//         <br />
-//         <label>
-//           New Password:
-//           <input type="password" name="newPassword" value={formData.newPassword} onChange={handleChange} />
-//         </label>
-//         <br />
-//         <button type="submit">Reset Password</button>
-//       </form>
-//       {message && <p>{message}</p>}
-//     </div>
-//   );
-// };
-
-// export default ForgotPassword;
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -102,7 +23,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:4000/forgot-password', {
+      const response = await fetch('https://usersapi-integration.onrender.com/forgot-password', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
